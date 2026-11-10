@@ -1,0 +1,147 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Cart | Sweet Bakery</title>
+
+    <link rel="stylesheet" href="CSS/style.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <nav class="navbar">
+        <a href="index.html" class="logo">Sweet Bakery</a>
+
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="menu.html">Menu</a>
+            <a href="about.html">About</a>
+            <a href="my-cart.html" class="active">My Cart</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </nav>
+
+    <!-- CART HERO -->
+
+    <section class="cart-hero">
+        <div class="cart-hero-content">
+            <p class="small-heading">YOUR SWEET SELECTION</p>
+
+            <h1>My Cart</h1>
+
+            <p>Your favourite treats, ready to be enjoyed.</p>
+        </div>
+    </section>
+
+    <!-- CART SECTION -->
+
+    <section class="cart-section">
+
+        <div class="cart-container">
+
+            <!-- CART PRODUCTS -->
+
+            <div class="cart-items">
+
+                <h2>Your Items</h2>
+
+                <div class="empty-cart">
+                    <h3>Your cart is empty</h3>
+
+                    <p>Add some delicious treats from our menu!</p>
+
+                    <a href="menu.html" class="cart-btn">
+                        Browse Menu
+                    </a>
+                </div>
+
+            </div>
+
+            <!-- ORDER SUMMARY -->
+
+            <div class="cart-summary">
+
+                <h2>Order Summary</h2>
+
+                <div class="summary-row">
+                    <span>Subtotal</span>
+                    <span id="cartSubtotal">₹0.00</span>
+                </div>
+
+                <div class="summary-row">
+                    <span>Delivery</span>
+                    <span id="cartDelivery">₹0.00</span>
+                </div>
+
+                <hr>
+
+                <div class="summary-row total-row">
+                    <strong>Total</strong>
+                    <strong id="cartTotal">₹0.00</strong>
+                </div>
+
+                <button
+                    type="button"
+                    class="cart-btn"
+                    id="placeOrderBtn"
+                    disabled
+                >
+                    Place Order
+                </button>
+
+                <button
+                    type="button"
+                    class="cart-btn"
+                    id="viewOrderHistoryBtn"
+                >
+                    View Order History
+                </button>
+
+                <!-- ORDER HISTORY APPEARS HERE -->
+
+                <div
+                    id="orderHistory"
+                    class="order-history"
+                ></div>
+
+                <p class="cart-note">
+                    Freshly baked happiness, just a click away! ❤️
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- FOOTER -->
+
+    <footer>
+        <div class="footer-content">
+
+            <h3>Sweet Bakery</h3>
+
+            <p>Freshly baked happiness, made with love.</p>
+
+            <div class="footer-line"></div>
+
+            <p class="copyright">
+                © 2026 Sweet Bakery. All rights reserved.
+            </p>
+
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT -->
+
+    <script src="JS/script.js"></script>
+
+</body>
+
+</html>

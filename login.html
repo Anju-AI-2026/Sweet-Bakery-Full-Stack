@@ -1,0 +1,159 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login & Sign Up | Sweet Bakery</title>
+
+    <link rel="stylesheet" href="CSS/style.css">
+
+    <script>
+        if (sessionStorage.getItem("sweetBakeryLoggedIn") === "true") {
+            window.location.replace("index.html");
+        }
+    </script>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <nav class="navbar">
+        <a href="index.html" class="logo">Sweet Bakery</a>
+
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="menu.html">Menu</a>
+            <a href="about.html">About</a>
+            <a href="my-cart.html">My Cart</a>
+            <a href="contact.html">Contact</a>
+            <a href="login.html" class="active">Login</a>
+        </div>
+    </nav>
+
+    <!-- PAGE HERO -->
+
+    <section class="cart-hero">
+        <div class="cart-hero-content">
+            <p class="small-heading">WELCOME TO OUR LITTLE BAKERY</p>
+            <h1>Your Sweet Corner</h1>
+            <p>Sign in or create an account to continue.</p>
+        </div>
+    </section>
+
+    <!-- LOGIN AND SIGN UP -->
+
+    <section class="auth-section">
+        <div class="auth-container">
+
+            <div class="auth-heading">
+                <h2 id="authTitle">Welcome Back!</h2>
+                <p id="authSubtitle">Log in to your Sweet Bakery account.</p>
+            </div>
+
+            <!-- LOGIN FORM -->
+
+            <form id="loginForm" class="auth-form">
+
+                <label for="loginEmail">Email Address</label>
+                <input
+                    type="email"
+                    id="loginEmail"
+                    placeholder="Enter your email"
+                    autocomplete="email"
+                    required
+                >
+
+                <label for="loginPassword">Password</label>
+                <input
+                    type="password"
+                    id="loginPassword"
+                    placeholder="Enter your password"
+                    autocomplete="current-password"
+                    required
+                >
+
+                <button type="submit" class="cart-btn">Login</button>
+
+                <p class="auth-switch">
+                    New here?
+                    <button type="button" id="showSignup">Create an account</button>
+                </p>
+            </form>
+
+            <!-- SIGN UP FORM -->
+
+            <form id="signupForm" class="auth-form" hidden>
+
+                <label for="signupName">Full Name</label>
+                <input
+                    type="text"
+                    id="signupName"
+                    placeholder="Enter your name"
+                    minlength="2"
+                    autocomplete="name"
+                    required
+                >
+
+                <label for="signupEmail">Email Address</label>
+                <input
+                    type="email"
+                    id="signupEmail"
+                    placeholder="Enter your email"
+                    autocomplete="email"
+                    required
+                >
+
+                <label for="signupPassword">Create Password</label>
+                <input
+                    type="password"
+                    id="signupPassword"
+                    placeholder="At least 8 characters"
+                    minlength="8"
+                    autocomplete="new-password"
+                    required
+                >
+
+                <label for="confirmPassword">Confirm Password</label>
+                <input
+                    type="password"
+                    id="confirmPassword"
+                    placeholder="Enter your password again"
+                    minlength="8"
+                    autocomplete="new-password"
+                    required
+                >
+
+                <button type="submit" class="cart-btn">Sign Up</button>
+
+                <p class="auth-switch">
+                    Already have an account?
+                    <button type="button" id="showLogin">Login</button>
+                </p>
+            </form>
+
+            <p id="authMessage" class="auth-message" role="status" aria-live="polite"></p>
+
+            <a href="index.html" class="auth-home-link">← Back to Home</a>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+
+    <footer>
+        <div class="footer-content">
+            <h3>Sweet Bakery</h3>
+            <p>Freshly baked happiness, made with love.</p>
+            <div class="footer-line"></div>
+            <p class="copyright">© 2026 Sweet Bakery. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="JS/auth.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,296 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sweet Bakery</title>
+
+    <script>
+        (function () {
+            const isLoggedIn =
+                sessionStorage.getItem("sweetBakeryLoggedIn") === "true";
+
+            if (!isLoggedIn) {
+                window.location.replace("login.html");
+            }
+        })();
+    </script>
+
+    <link rel="stylesheet" href="CSS/style.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <header class="navbar">
+
+        <div class="logo">
+            Sweet Bakery 🧁
+        </div>
+
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="my-cart.html">My Cart</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+
+    </header>
+
+
+    <!-- Hero Section -->
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <div class="hero-text">
+
+                <p class="small-heading">
+                    WELCOME TO SWEET BAKERY
+                </p>
+
+                <h1>
+                    Sweet Moments,<br>
+                    Freshly Baked
+                </h1>
+
+                <p>
+                    Delicious cakes, pastries and sweet treats
+                    made with love for every special moment.
+                </p>
+
+                <a href="menu.html" class="btn">
+                    Explore Our Menu →
+                </a>
+
+            </div>
+
+
+            <div class="hero-image">
+
+                <img src="media/banner.png"
+                     alt="Sweet Bakery">
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Specialties -->
+    <section class="specialties">
+
+        <div class="section-heading">
+
+            <p class="section-label">
+                ✦ OUR SPECIALTIES ✦
+            </p>
+
+            <h2>
+                Something Sweet For Everyone
+            </h2>
+
+        </div>
+
+
+        <div class="specialty-container">
+
+            <div class="specialty-card">
+
+                <div class="specialty-icon">
+                    🎂
+                </div>
+
+                <h3>
+                    Beautiful Cakes
+                </h3>
+
+                <p>
+                    Delicious cakes made for birthdays,
+                    celebrations and special moments.
+                </p>
+
+            </div>
+
+
+            <div class="specialty-card">
+
+                <div class="specialty-icon">
+                    🥐
+                </div>
+
+                <h3>
+                    Fresh Pastries
+                </h3>
+
+                <p>
+                    Soft, flaky and freshly baked pastries
+                    for your everyday cravings.
+                </p>
+
+            </div>
+
+
+            <div class="specialty-card">
+
+                <div class="specialty-icon">
+                    🍪
+                </div>
+
+                <h3>
+                    Sweet Cookies
+                </h3>
+
+                <p>
+                    Crispy, buttery cookies that are
+                    perfect with your favourite drink.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Featured Products -->
+    <section class="featured">
+
+        <div class="section-heading">
+
+            <p class="section-label">
+                ✦ FEATURED ✦
+            </p>
+
+            <h2>
+                Our Favourite Treats
+            </h2>
+
+        </div>
+
+
+        <div class="product-container">
+
+
+            <!-- Chocolate Cake -->
+            <div class="product-card">
+
+                <img src="media/images/cake1.jpeg"
+                     alt="Chocolate Cake">
+
+                <div class="product-info">
+
+                    <h3>
+                        Chocolate Cake
+                    </h3>
+
+                    <p>
+                        ₹550
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- Chocolate Pastry -->
+            <div class="product-card">
+
+                <img src="media/images/pastry1.jpeg"
+                     alt="Chocolate Pastry">
+
+                <div class="product-info">
+
+                    <h3>
+                        Chocolate Pastry
+                    </h3>
+
+                    <p>
+                        ₹120
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- Cupcake -->
+            <div class="product-card">
+
+                <img src="media/images/muffin1.jpeg"
+                     alt="Vanilla Cupcake">
+
+                <div class="product-info">
+
+                    <h3>
+                        Vanilla Cupcake
+                    </h3>
+
+                    <p>
+                        ₹90
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- Strawberry Cake -->
+            <div class="product-card">
+
+                <img src="media/images/cake2.jpeg"
+                     alt="Strawberry Cake">
+
+                <div class="product-info">
+
+                    <h3>
+                        Strawberry Cake
+                    </h3>
+
+                    <p>
+                        ₹600
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <div class="footer-content">
+
+            <h3>
+                Sweet Bakery 🧁
+            </h3>
+
+            <p>
+                Freshly baked with love, served with happiness.
+            </p>
+
+            <div class="footer-line"></div>
+
+            <p class="copyright">
+                © 2026 Sweet Bakery. All Rights Reserved.
+            </p>
+
+        </div>
+
+    </footer>
+
+</body>
+
+</html>

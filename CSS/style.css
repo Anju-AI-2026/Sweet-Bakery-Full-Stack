@@ -1,0 +1,1746 @@
+/* =========================================
+   SWEET BAKERY
+   MAIN STYLE SHEET
+   ========================================= */
+
+
+/* ---------- RESET ---------- */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: Georgia, "Times New Roman", serif;
+    background-color: #fffaf7;
+    color: #5a3b3b;
+    line-height: 1.6;
+}
+
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+
+a {
+    text-decoration: none;
+}
+
+
+ul {
+    list-style: none;
+}
+
+
+/* =========================================
+   NAVIGATION
+   ========================================= */
+
+.navbar {
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 20px 7%;
+
+    background-color: #fffaf7;
+
+    border-bottom: 1px solid #f1dddd;
+}
+
+
+.logo {
+    font-size: 27px;
+    font-weight: bold;
+    font-style: italic;
+
+    color: #8f4f4f;
+}
+
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+
+.nav-links a {
+    position: relative;
+
+    color: #624747;
+
+    font-size: 15px;
+
+    padding-bottom: 5px;
+
+    transition: color 0.3s ease;
+}
+
+
+.nav-links a:hover {
+    color: #bd6868;
+}
+
+
+.nav-links a.active {
+    color: #bd6868;
+}
+
+
+.nav-links a.active::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    height: 2px;
+
+    background-color: #bd6868;
+}
+
+
+/* =========================================
+   HERO
+   ========================================= */
+
+.hero {
+    background-color: #f9e4e5;
+
+    padding: 65px 7% 75px;
+}
+
+
+.hero-content {
+    max-width: 1200px;
+
+    margin: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 60px;
+}
+
+
+.hero-text {
+    flex: 1;
+
+    max-width: 540px;
+}
+
+
+.small-heading {
+    color: #b45f5f;
+
+    font-size: 12px;
+    font-weight: bold;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 14px;
+}
+
+
+.hero-text h1 {
+    color: #5c3535;
+
+    font-size: 54px;
+
+    line-height: 1.15;
+
+    margin-bottom: 20px;
+}
+
+
+.hero-text > p:not(.small-heading) {
+    color: #765858;
+
+    font-size: 17px;
+
+    max-width: 500px;
+
+    margin-bottom: 28px;
+}
+
+
+/* ---------- Button ---------- */
+
+.btn {
+    display: inline-block;
+
+    background-color: #bd6868;
+
+    color: white;
+
+    padding: 12px 25px;
+
+    border-radius: 25px;
+
+    font-size: 14px;
+    font-weight: bold;
+
+    transition: background-color 0.3s ease,
+                transform 0.3s ease;
+}
+
+
+.btn:hover {
+    background-color: #9e5050;
+
+    transform: translateY(-2px);
+}
+
+
+/* ---------- Hero Image ---------- */
+
+.hero-image {
+    flex: 1;
+
+    max-width: 500px;
+}
+
+
+.hero-image img {
+    width: 100%;
+
+    height: 360px;
+
+    object-fit: cover;
+
+    border-radius: 18px;
+
+    box-shadow: 0 10px 25px rgba(100, 60, 60, 0.12);
+}
+
+
+/* =========================================
+   COMMON SECTION HEADING
+   ========================================= */
+
+.section-heading {
+    text-align: center;
+
+    max-width: 700px;
+
+    margin: 0 auto 42px;
+}
+
+
+.section-label {
+    color: #bd6868;
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 8px;
+}
+
+
+.section-heading h2 {
+    color: #5c3535;
+
+    font-size: 34px;
+}
+
+
+/* =========================================
+   SPECIALTIES
+   ========================================= */
+
+.specialties {
+    background-color: #fffaf7;
+
+    padding: 80px 7%;
+}
+
+
+.specialty-container {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 25px;
+
+    flex-wrap: wrap;
+}
+
+
+.specialty-card {
+    width: 280px;
+
+    padding: 30px 25px;
+
+    text-align: center;
+
+    background-color: #fff;
+
+    border: 1px solid #f0dada;
+
+    border-radius: 14px;
+
+    box-shadow: 0 5px 18px rgba(100, 60, 60, 0.07);
+
+    transition: transform 0.3s ease,
+                box-shadow 0.3s ease;
+}
+
+
+.specialty-card:hover {
+    transform: translateY(-6px);
+
+    box-shadow: 0 10px 25px rgba(100, 60, 60, 0.11);
+}
+
+
+.specialty-icon {
+    font-size: 38px;
+
+    margin-bottom: 15px;
+}
+
+
+.specialty-card h3 {
+    color: #674040;
+
+    font-size: 20px;
+
+    margin-bottom: 10px;
+}
+
+
+.specialty-card p {
+    color: #765f5f;
+
+    font-size: 14px;
+}
+
+
+/* =========================================
+   FEATURED PRODUCTS
+   ========================================= */
+
+.featured {
+    background-color: #fdf0ed;
+
+    padding: 80px 7%;
+}
+
+
+.product-container {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 22px;
+
+    flex-wrap: wrap;
+}
+
+
+.product-card {
+    width: 260px;
+
+    background-color: #fff;
+
+    border: 1px solid #f0dada;
+
+    border-radius: 14px;
+
+    overflow: hidden;
+
+    box-shadow: 0 5px 18px rgba(100, 60, 60, 0.08);
+
+    transition: transform 0.3s ease,
+                box-shadow 0.3s ease;
+}
+
+
+.product-card:hover {
+    transform: translateY(-6px);
+
+    box-shadow: 0 10px 25px rgba(100, 60, 60, 0.12);
+}
+
+
+.product-card img {
+    width: 100%;
+
+    height: 205px;
+
+    object-fit: cover;
+}
+
+
+.product-info {
+    padding: 17px 18px 20px;
+
+    text-align: center;
+}
+
+
+.product-info h3 {
+    color: #674040;
+
+    font-size: 17px;
+
+    margin-bottom: 5px;
+}
+
+
+.product-info p {
+    color: #bd6868;
+
+    font-size: 15px;
+
+    font-weight: bold;
+}
+
+
+/* =========================================
+   FOOTER
+   ========================================= */
+
+footer {
+    background-color: #704747;
+
+    color: #fff7f3;
+
+    padding: 32px 20px;
+
+    text-align: center;
+}
+
+
+.footer-content h3 {
+    font-size: 23px;
+
+    margin-bottom: 6px;
+}
+
+
+.footer-content > p {
+    font-size: 13px;
+
+    opacity: 0.9;
+}
+
+
+.footer-line {
+    width: 45px;
+
+    height: 1px;
+
+    background-color: #d9aaaa;
+
+    margin: 18px auto;
+}
+
+
+.footer-content .copyright {
+    font-size: 12px;
+
+    opacity: 0.7;
+}
+
+
+/* =========================================
+   RESPONSIVE DESIGN
+   ========================================= */
+
+@media (max-width: 850px) {
+
+    .navbar {
+        flex-direction: column;
+
+        gap: 18px;
+
+        padding: 20px;
+    }
+
+
+    .nav-links {
+        gap: 18px;
+
+        flex-wrap: wrap;
+
+        justify-content: center;
+    }
+
+
+    .hero-content {
+        flex-direction: column;
+
+        text-align: center;
+    }
+
+
+    .hero-text {
+        max-width: 650px;
+    }
+
+
+    .hero-text > p:not(.small-heading) {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+
+    .hero-image {
+        width: 100%;
+
+        max-width: 600px;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .hero {
+        padding: 50px 20px;
+    }
+
+
+    .hero-text h1 {
+        font-size: 40px;
+    }
+
+
+    .hero-image img {
+        height: 280px;
+    }
+
+
+    .specialties,
+    .featured {
+        padding: 60px 20px;
+    }
+
+
+    .section-heading h2 {
+        font-size: 28px;
+    }
+
+
+    .specialty-card,
+    .product-card {
+        width: 100%;
+
+        max-width: 330px;
+    }
+}
+
+/* =========================================
+   ABOUT PAGE
+   ========================================= */
+
+.about-hero {
+    background-color: #f9e4e5;
+
+    min-height: 330px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 60px 20px;
+}
+
+.about-hero-content {
+    max-width: 750px;
+}
+
+.about-hero-content h1 {
+    color: #5c3535;
+
+    font-size: 50px;
+
+    margin-bottom: 15px;
+}
+
+.about-hero-content > p:last-child {
+    color: #765858;
+
+    font-size: 17px;
+}
+
+
+/* ---------- Our Story ---------- */
+
+.about-story {
+    background-color: #fffaf7;
+
+    padding: 85px 7%;
+
+    text-align: center;
+}
+
+.story-content {
+    max-width: 850px;
+
+    margin: auto;
+}
+
+.story-content h2 {
+    color: #5c3535;
+
+    font-size: 36px;
+
+    margin-bottom: 25px;
+}
+
+.story-content p:not(.section-label) {
+    color: #765f5f;
+
+    font-size: 16px;
+
+    margin-bottom: 15px;
+}
+
+
+/* ---------- Beliefs ---------- */
+
+.belief-section {
+    background-color: #fdf0ed;
+
+    padding: 80px 7%;
+
+    text-align: center;
+}
+
+.belief-section .section-heading {
+    margin-bottom: 40px;
+}
+
+
+/* ---------- Why Section ---------- */
+
+.why-section {
+    background-color: #fffaf7;
+
+    padding: 85px 7%;
+
+    text-align: center;
+}
+
+.why-content {
+    max-width: 750px;
+
+    margin: auto;
+}
+
+.why-content h2 {
+    color: #5c3535;
+
+    font-size: 36px;
+
+    margin-bottom: 30px;
+}
+
+.why-list {
+    max-width: 450px;
+
+    margin: auto;
+
+    text-align: left;
+}
+
+.why-list p {
+    color: #765f5f;
+
+    font-size: 16px;
+
+    padding: 7px 0;
+}
+
+
+/* ---------- About Responsive ---------- */
+
+@media (max-width: 600px) {
+
+    .about-hero-content h1 {
+        font-size: 38px;
+    }
+
+    .about-story,
+    .belief-section,
+    .why-section {
+        padding: 60px 20px;
+    }
+
+    .story-content h2,
+    .why-content h2 {
+        font-size: 29px;
+    }
+}
+
+/* =========================================
+   MENU PAGE
+   ========================================= */
+
+.menu-hero {
+    background-color: #f9e4e5;
+
+    min-height: 300px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 55px 20px;
+}
+
+
+.menu-hero-content {
+    max-width: 700px;
+}
+
+
+.menu-hero-content h1 {
+    color: #5c3535;
+
+    font-size: 46px;
+
+    margin-bottom: 12px;
+}
+
+
+.menu-hero-content > p:last-child {
+    color: #765858;
+
+    font-size: 16px;
+}
+
+
+/* ---------- Menu Sections ---------- */
+
+.menu-section {
+    background-color: #fffaf7;
+
+    padding: 65px 5%;
+}
+
+
+.menu-section-alt {
+    background-color: #fdf0ed;
+}
+
+
+/* ---------- Product Grid ---------- */
+
+.menu-grid {
+    max-width: 1200px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 28px;
+}
+
+
+/* ---------- Product Card ---------- */
+
+.menu-card {
+    background-color: #ffffff;
+
+    border: 1px solid #f0dada;
+
+    border-radius: 15px;
+
+    overflow: hidden;
+
+    box-shadow: 0 5px 16px rgba(100, 60, 60, 0.08);
+
+    transition: transform 0.3s ease,
+                box-shadow 0.3s ease;
+}
+
+
+.menu-card:hover {
+    transform: translateY(-6px);
+
+    box-shadow: 0 10px 24px rgba(100, 60, 60, 0.13);
+}
+
+
+/* ---------- Product Image ---------- */
+
+.menu-card > img {
+    width: 100%;
+
+    height: 230px;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+
+/* ---------- Product Information ---------- */
+
+.menu-card-info {
+    padding: 17px 17px 18px;
+}
+
+
+.menu-card-info h3 {
+    color: #674040;
+
+    font-size: 17px;
+
+    margin-bottom: 7px;
+}
+
+
+.menu-card-info > p {
+    color: #765f5f;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+
+    min-height: 58px;
+
+    margin-bottom: 14px;
+}
+
+
+/* ---------- Price + Button ---------- */
+
+.menu-bottom {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 10px;
+}
+
+
+.price {
+    color: #bd6868;
+
+    font-size: 16px;
+
+    font-weight: bold;
+}
+
+
+.cart-btn {
+    border: none;
+
+    background-color: #bd6868;
+
+    color: white;
+
+    padding: 9px 13px;
+
+    border-radius: 20px;
+
+    font-family: inherit;
+
+    font-size: 11px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: background-color 0.3s ease,
+                transform 0.3s ease;
+}
+
+
+.cart-btn:hover {
+    background-color: #9e5050;
+
+    transform: translateY(-2px);
+}
+
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 1050px) {
+
+    .menu-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+}
+
+
+@media (max-width: 780px) {
+
+    .menu-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .menu-hero-content h1 {
+        font-size: 36px;
+    }
+
+
+    .menu-section {
+        padding: 55px 20px;
+    }
+
+
+    .menu-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .menu-card > img {
+        height: 220px;
+    }
+
+}
+
+/* =========================================
+   MY CART PAGE
+   ========================================= */
+
+.cart-hero {
+    background-color: #f9e4e5;
+
+    min-height: 300px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 55px 20px;
+}
+
+
+.cart-hero-content {
+    max-width: 700px;
+}
+
+
+.cart-hero-content h1 {
+    color: #5c3535;
+
+    font-size: 46px;
+
+    margin-bottom: 12px;
+}
+
+
+.cart-hero-content p {
+    color: #765858;
+
+    font-size: 16px;
+}
+
+
+/* ---------- Cart Section ---------- */
+
+.cart-section {
+    background-color: #fffaf7;
+
+    padding: 70px 7%;
+}
+
+
+.cart-container {
+    max-width: 1100px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: 1fr 350px;
+
+    gap: 30px;
+
+    align-items: start;
+}
+
+
+/* ---------- Cart Items ---------- */
+
+.cart-items {
+    background-color: #ffffff;
+
+    border: 1px solid #f0dada;
+
+    border-radius: 15px;
+
+    padding: 28px;
+
+    box-shadow: 0 5px 16px rgba(100, 60, 60, 0.08);
+}
+
+
+.cart-items h2 {
+    color: #5c3535;
+
+    font-size: 26px;
+
+    margin-bottom: 22px;
+}
+
+
+.empty-cart {
+    background-color: #fdf0ed;
+
+    border: 1px solid #f0dada;
+
+    border-radius: 12px;
+
+    padding: 45px 25px;
+
+    text-align: center;
+}
+
+
+.empty-cart h3 {
+    color: #674040;
+
+    font-size: 21px;
+
+    margin-bottom: 10px;
+}
+
+
+.empty-cart p {
+    color: #765f5f;
+
+    font-size: 14px;
+
+    margin-bottom: 22px;
+}
+
+
+/* ---------- Browse Menu Button ---------- */
+
+.empty-cart .cart-btn {
+    display: inline-block;
+
+    background-color: #bd6868;
+
+    color: white;
+
+    padding: 11px 22px;
+
+    border-radius: 20px;
+
+    font-family: inherit;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    transition: background-color 0.3s ease,
+                transform 0.3s ease;
+}
+
+
+.empty-cart .cart-btn:hover {
+    background-color: #9e5050;
+
+    transform: translateY(-2px);
+}
+
+
+/* ---------- Order Summary ---------- */
+
+.cart-summary {
+    background-color: #ffffff;
+
+    border: 1px solid #f0dada;
+
+    border-radius: 15px;
+
+    padding: 28px;
+
+    box-shadow: 0 5px 16px rgba(100, 60, 60, 0.08);
+}
+
+
+.cart-summary h2 {
+    color: #5c3535;
+
+    font-size: 26px;
+
+    margin-bottom: 25px;
+}
+
+
+.summary-row {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    color: #765f5f;
+
+    font-size: 14px;
+
+    margin-bottom: 17px;
+}
+
+
+.cart-summary hr {
+    border: none;
+
+    border-top: 1px solid #f0dada;
+
+    margin: 22px 0;
+}
+
+
+.total-row {
+    color: #674040;
+
+    font-size: 17px;
+
+    margin-bottom: 25px;
+}
+
+
+/* ---------- Place Order Button ---------- */
+
+.cart-summary .cart-btn {
+    width: 100%;
+
+    border: none;
+
+    background-color: #bd6868;
+
+    color: white;
+
+    padding: 11px 20px;
+
+    border-radius: 20px;
+
+    font-family: inherit;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: background-color 0.3s ease,
+                transform 0.3s ease;
+}
+
+
+.cart-summary .cart-btn:hover:not(:disabled) {
+    background-color: #9e5050;
+
+    transform: translateY(-2px);
+}
+
+
+.cart-summary .cart-btn:disabled {
+    background-color: #d9aaaa;
+
+    cursor: not-allowed;
+
+    opacity: 0.8;
+}
+
+
+/* ---------- Cart Responsive ---------- */
+
+@media (max-width: 850px) {
+
+    .cart-container {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .cart-hero-content h1 {
+        font-size: 36px;
+    }
+
+
+    .cart-section {
+        padding: 55px 20px;
+    }
+
+
+    .cart-items,
+    .cart-summary {
+        padding: 22px;
+    }
+
+
+    .cart-items h2,
+    .cart-summary h2 {
+        font-size: 23px;
+    }
+
+
+    .empty-cart {
+        padding: 35px 18px;
+    }
+
+}
+
+/* ---------- Cart Product Slider ---------- */
+
+.cart-item {
+    background-color: #fdf0ed;
+    border: 1px solid #f0dada;
+    border-radius: 12px;
+    padding: 28px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.cart-item h3 {
+    color: #674040;
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.cart-item p {
+    color: #765f5f;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.cart-navigation {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+.cart-navigation button {
+    background-color: #bd6868;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease,
+                transform 0.3s ease;
+}
+
+.cart-navigation button:hover {
+    background-color: #9e5050;
+    transform: translateY(-2px);
+}
+
+/* =========================================
+   CONTACT PAGE
+   ========================================= */
+
+
+/* ---------- Contact Hero ---------- */
+
+.contact-hero {
+    background-color: #f9e4e5;
+    min-height: 300px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 55px 20px;
+}
+
+.contact-hero-content {
+    max-width: 700px;
+}
+
+.contact-hero-content h1 {
+    color: #5c3535;
+    font-size: 46px;
+    margin-bottom: 12px;
+}
+
+.contact-hero-content p {
+    color: #765858;
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+
+/* ---------- Contact Section ---------- */
+
+.contact-section {
+    background-color: #fffaf7;
+    padding: 70px 7%;
+}
+
+.contact-container {
+    max-width: 1100px;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    gap: 35px;
+}
+
+
+/* ---------- Contact Cards ---------- */
+
+.contact-info,
+.contact-form-container {
+    background-color: #ffffff;
+
+    border: 1px solid #f0dada;
+    border-radius: 15px;
+
+    padding: 32px;
+
+    box-shadow: 0 5px 16px rgba(100, 60, 60, 0.08);
+}
+
+
+/* ---------- Headings ---------- */
+
+.contact-info h2,
+.contact-form-container h2 {
+    color: #5c3535;
+    font-size: 26px;
+
+    margin-bottom: 18px;
+}
+
+
+/* ---------- Contact Information ---------- */
+
+.contact-info > p {
+    color: #765f5f;
+    font-size: 14px;
+    line-height: 1.8;
+
+    margin-bottom: 28px;
+}
+
+.contact-details {
+    display: flex;
+    flex-direction: column;
+
+    gap: 18px;
+}
+
+.contact-detail {
+    background-color: #fdf0ed;
+
+    border: 1px solid #f0dada;
+    border-radius: 12px;
+
+    padding: 17px 20px;
+}
+
+.contact-detail h3 {
+    color: #674040;
+    font-size: 16px;
+
+    margin-bottom: 6px;
+}
+
+.contact-detail p {
+    color: #765f5f;
+    font-size: 13px;
+}
+
+
+/* ---------- Contact Form ---------- */
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+
+    color: #674040;
+
+    font-size: 14px;
+    font-weight: bold;
+
+    margin-bottom: 8px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+
+    box-sizing: border-box;
+
+    border: 1px solid #f0dada;
+    border-radius: 10px;
+
+    background-color: #fffaf7;
+
+    padding: 12px 14px;
+
+    font-family: inherit;
+    font-size: 14px;
+
+    color: #5a3b3b;
+
+    outline: none;
+
+    transition:
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #bd6868;
+
+    box-shadow:
+        0 0 0 3px rgba(189, 104, 104, 0.10);
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+
+/* ---------- Buttons ---------- */
+
+.contact-btn {
+    width: 100%;
+
+    border: none;
+
+    background-color: #bd6868;
+    color: white;
+
+    padding: 12px 20px;
+
+    border-radius: 20px;
+
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.3s ease,
+        transform 0.3s ease;
+}
+
+.contact-btn:hover {
+    background-color: #9e5050;
+
+    transform: translateY(-2px);
+}
+
+
+/* ---------- Space Between Buttons ---------- */
+
+.message-view-space {
+    height: 12px;
+}
+
+
+/* ---------- Saved Messages ---------- */
+
+#savedMessages {
+    margin-top: 18px;
+}
+
+.saved-message-card {
+    background-color: #fdf0ed;
+
+    border: 1px solid #f0dada;
+    border-radius: 12px;
+
+    padding: 18px 20px;
+
+    margin-top: 12px;
+}
+
+.saved-message-card h3 {
+    color: #674040;
+
+    font-size: 16px;
+
+    margin-bottom: 10px;
+}
+
+.saved-message-card p {
+    color: #765f5f;
+
+    font-size: 13px;
+    line-height: 1.6;
+
+    margin-bottom: 6px;
+}
+
+.saved-message-card strong {
+    color: #674040;
+}
+
+.saved-message-empty {
+    background-color: #fdf0ed;
+
+    border: 1px solid #f0dada;
+    border-radius: 12px;
+
+    padding: 16px;
+
+    margin-top: 12px;
+
+    text-align: center;
+}
+
+.saved-message-empty p {
+    color: #765f5f;
+
+    font-size: 13px;
+}
+
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 850px) {
+
+    .contact-container {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .contact-hero-content h1 {
+        font-size: 36px;
+    }
+
+    .contact-section {
+        padding: 55px 20px;
+    }
+
+    .contact-info,
+    .contact-form-container {
+        padding: 22px;
+    }
+
+}
+
+
+/* =========================================
+   ORDER HISTORY
+========================================= */
+
+#viewOrderHistoryBtn {
+    width: 100%;
+    margin-top: 12px;
+}
+
+.order-history {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.order-history-card,
+.order-history-empty {
+    background: #fff8f0;
+    border: 1px solid #ead8c8;
+    border-radius: 12px;
+    padding: 18px;
+    margin-bottom: 15px;
+    overflow-wrap: anywhere;
+}
+
+.order-history-card h3,
+.order-history-empty h3 {
+    color: #75452f;
+    margin-bottom: 10px;
+}
+
+.order-history-card h4 {
+    margin-top: 15px;
+    color: #75452f;
+}
+
+.order-history-card p,
+.order-history-empty p {
+    margin: 8px 0;
+    line-height: 1.6;
+}
+
+
+
+/* =========================================
+   LOGIN & SIGN UP PAGE
+   ========================================= */
+
+.auth-section {
+    background-color: #fffaf7;
+    padding: 70px 20px 85px;
+}
+
+.auth-container {
+    width: 100%;
+    max-width: 480px;
+    margin: auto;
+    padding: 38px;
+
+    background-color: #ffffff;
+    border: 1px solid #f0dada;
+    border-radius: 16px;
+
+    box-shadow: 0 5px 18px rgba(100, 60, 60, 0.08);
+}
+
+.auth-heading {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.auth-heading h2 {
+    color: #5c3535;
+    font-size: 30px;
+    margin-bottom: 8px;
+}
+
+.auth-heading p {
+    color: #765858;
+    font-size: 14px;
+}
+
+.auth-form label {
+    display: block;
+    color: #674040;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 7px;
+}
+
+.auth-form input {
+    width: 100%;
+    padding: 12px 14px;
+    margin-bottom: 20px;
+
+    border: 1px solid #f0dada;
+    border-radius: 10px;
+    background-color: #fffaf7;
+
+    color: #5a3b3b;
+    font-family: inherit;
+    font-size: 14px;
+
+    outline: none;
+    transition: border-color 0.3s ease,
+                box-shadow 0.3s ease;
+}
+
+.auth-form input:focus {
+    border-color: #bd6868;
+    box-shadow: 0 0 0 3px rgba(189, 104, 104, 0.10);
+}
+
+.auth-form .cart-btn {
+    width: 100%;
+    padding: 12px 20px;
+    font-size: 13px;
+}
+
+.auth-switch {
+    margin-top: 22px;
+    text-align: center;
+    color: #765f5f;
+    font-size: 13px;
+}
+
+.auth-switch button {
+    border: none;
+    background: none;
+    color: #bd6868;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.auth-switch button:hover {
+    color: #9e5050;
+    text-decoration: underline;
+}
+
+.auth-message {
+    margin-top: 18px;
+    text-align: center;
+    color: #765858;
+    font-size: 14px;
+    overflow-wrap: anywhere;
+}
+
+.auth-home-link {
+    display: block;
+    width: fit-content;
+    margin: 22px auto 0;
+
+    color: #bd6868;
+    font-size: 13px;
+    transition: color 0.3s ease;
+}
+
+.auth-home-link:hover {
+    color: #9e5050;
+}
+
+.auth-form[hidden] {
+    display: none;
+}
+
+/* ---------- Login Page Responsive ---------- */
+
+@media (max-width: 600px) {
+    .auth-section {
+        padding: 45px 18px 60px;
+    }
+
+    .auth-container {
+        padding: 26px 22px;
+    }
+
+    .auth-heading h2 {
+        font-size: 27px;
+    }
+}
