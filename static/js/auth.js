@@ -1,4 +1,3 @@
-
 const loginForm = document.getElementById("loginForm");
 const signupForm = document.getElementById("signupForm");
 
@@ -6,26 +5,6 @@ const authTitle = document.getElementById("authTitle");
 const authSubtitle = document.getElementById("authSubtitle");
 const authMessage = document.getElementById("authMessage");
 
-const ACCOUNT_KEY = "sweetBakeryAccounts";
-const SESSION_KEY = "sweetBakeryLoggedIn";
-
-function getAccounts() {
-    try {
-        return JSON.parse(localStorage.getItem(ACCOUNT_KEY)) || {};
-    } catch {
-        return {};
-    }
-}
-
-// Demo-only password hash. Not suitable for real authentication.
-async function hashPassword(password) {
-    const data = new TextEncoder().encode(password);
-    const hash = await crypto.subtle.digest("SHA-256", data);
-
-    return Array.from(new Uint8Array(hash))
-        .map(byte => byte.toString(16).padStart(2, "0"))
-        .join("");
-}
 
 // Switch to Sign Up.
 document.getElementById("showSignup").addEventListener("click", function () {
@@ -37,6 +16,7 @@ document.getElementById("showSignup").addEventListener("click", function () {
     authMessage.textContent = "";
 });
 
+
 // Switch to Login.
 document.getElementById("showLogin").addEventListener("click", function () {
     signupForm.hidden = true;
@@ -46,6 +26,7 @@ document.getElementById("showLogin").addEventListener("click", function () {
     authSubtitle.textContent = "Log in to your Sweet Bakery account.";
     authMessage.textContent = "";
 });
+
 
 // Sign Up.
 signupForm.addEventListener("submit", async function (event) {
@@ -71,33 +52,38 @@ signupForm.addEventListener("submit", async function (event) {
         return;
     }
 
-    const accounts = getAccounts();
+    try {
+        const response = await fetch("/api/signup", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                name: name,
+                email: email,
+                password: password
+            })
+        });
 
-    if (accounts[email]) {
-        authMessage.textContent = "This email is already registered. Please log in.";
-        return;
+        const result = await response.json();
+
+        authMessage.textContent = result.message;
+
+        if (!response.ok) {
+            return;
+        }
+
+        signupForm.reset();
+
+        setTimeout(function () {
+            window.location.replace("/");
+        }, 700);
+
+    } catch (error) {
+        authMessage.textContent = "Something went wrong. Please try again.";
     }
-
-    const passwordHash = await hashPassword(password);
-
-    accounts[email] = {
-        name: name,
-        passwordHash: passwordHash
-    };
-
-    localStorage.setItem(ACCOUNT_KEY, JSON.stringify(accounts));
-    sessionStorage.setItem(SESSION_KEY, "true");
-    localStorage.setItem("sweetBakeryUserName", name);
-    localStorage.setItem("sweetBakeryUserEmail", email);
-
-    authMessage.textContent = "Account created! Welcome to Sweet Bakery.";
-
-    signupForm.reset();
-
-    setTimeout(function () {
-        window.location.replace("index.html");
-    }, 700);
 });
+
 
 // Login.
 loginForm.addEventListener("submit", async function (event) {
@@ -106,30 +92,33 @@ loginForm.addEventListener("submit", async function (event) {
     const email = document.getElementById("loginEmail").value.trim().toLowerCase();
     const password = document.getElementById("loginPassword").value;
 
-    const accounts = getAccounts();
-    const account = accounts[email];
+    try {
+        const response = await fetch("/api/login", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                email: email,
+                password: password
+            })
+        });
 
-    if (!account) {
-        authMessage.textContent = "No account found with this email. Please sign up first.";
-        return;
+        const result = await response.json();
+
+        authMessage.textContent = result.message;
+
+        if (!response.ok) {
+            return;
+        }
+
+        loginForm.reset();
+
+        setTimeout(function () {
+            window.location.replace("/");
+        }, 700);
+
+    } catch (error) {
+        authMessage.textContent = "Something went wrong. Please try again.";
     }
-
-    const passwordHash = await hashPassword(password);
-
-    if (passwordHash !== account.passwordHash) {
-        authMessage.textContent = "Incorrect password. Please try again.";
-        return;
-    }
-
-    sessionStorage.setItem(SESSION_KEY, "true");
-    localStorage.setItem("sweetBakeryUserName", account.name);
-    localStorage.setItem("sweetBakeryUserEmail", email);
-
-    authMessage.textContent = "Login successful! Welcome back.";
-
-    loginForm.reset();
-
-    setTimeout(function () {
-        window.location.replace("index.html");
-    }, 700);
 });
