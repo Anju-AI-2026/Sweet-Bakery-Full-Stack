@@ -1,242 +1,237 @@
-<!DOCTYPE html>
 
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-```
-<title>Contact | Sweet Bakery</title>
+    <title>Contact | Sweet Bakery</title>
 
-<link rel="stylesheet" href="CSS/style.css">
-```
-
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 
 <body>
 
-```
-<!-- Navigation -->
-<header class="navbar">
+    <!-- Navigation -->
+    <header class="navbar">
 
-    <div class="logo">
-        Sweet Bakery 🧁
-    </div>
+        <div class="logo">
+            Sweet Bakery 🧁
+        </div>
 
-    <nav>
-        <ul class="nav-links">
+        <nav>
+            <ul class="nav-links">
 
-            <li>
-                <a href="index.html">Home</a>
-            </li>
+                <li>
+                    <a href="{{ url_for('home') }}">Home</a>
+                </li>
 
-            <li>
-                <a href="menu.html">Menu</a>
-            </li>
+                <li>
+                    <a href="{{ url_for('menu') }}">Menu</a>
+                </li>
 
-            <li>
-                <a href="about.html">About</a>
-            </li>
+                <li>
+                    <a href="{{ url_for('about') }}">About</a>
+                </li>
 
-            <li>
-                <a href="my-cart.html">My Cart</a>
-            </li>
+                <li>
+                    <a href="{{ url_for('cart') }}">My Cart</a>
+                </li>
 
-            <li>
-                <a href="contact.html" class="active">Contact</a>
-            </li>
+                <li>
+                    <a href="{{ url_for('contact') }}" class="active">Contact</a>
+                </li>
 
-        </ul>
-    </nav>
+            </ul>
+        </nav>
 
-</header>
-
-
-<!-- Contact Hero -->
-<section class="contact-hero">
-
-    <div class="contact-hero-content">
-
-        <p class="small-heading">
-            WE'D LOVE TO HEAR FROM YOU
-        </p>
-
-        <h1>Contact Us</h1>
-
-        <p>
-            Have a question, suggestion, or just want to say hello?
-            We'd be happy to hear from you.
-        </p>
-
-    </div>
-
-</section>
+    </header>
 
 
-<!-- Contact Section -->
-<section class="contact-section">
+    <!-- Contact Hero -->
+    <section class="contact-hero">
 
-    <div class="contact-container">
+        <div class="contact-hero-content">
 
-
-        <!-- Contact Information -->
-        <div class="contact-info">
-
-            <h2>Get In Touch</h2>
-
-            <p>
-                Whether you're looking for your favourite treat
-                or simply want to know more about Sweet Bakery,
-                feel free to reach out.
+            <p class="small-heading">
+                WE'D LOVE TO HEAR FROM YOU
             </p>
 
-            <div class="contact-details">
+            <h1>Contact Us</h1>
 
-                <div class="contact-detail">
+            <p>
+                Have a question, suggestion, or just want to say hello?
+                We'd be happy to hear from you.
+            </p>
 
-                    <h3>📍 Visit Us</h3>
+        </div>
 
-                    <p>Hubli, Karnataka</p>
-
-                </div>
-
-
-                <div class="contact-detail">
-
-                    <h3>📞 Call Us</h3>
-
-                    <p>+91 98765 43210</p>
-
-                </div>
+    </section>
 
 
-                <div class="contact-detail">
+    <!-- Contact Section -->
+    <section class="contact-section">
 
-                    <h3>✉️ Email Us</h3>
+        <div class="contact-container">
 
-                    <p>sweetbakery@example.com</p>
+
+            <!-- Contact Information -->
+            <div class="contact-info">
+
+                <h2>Get In Touch</h2>
+
+                <p>
+                    Whether you're looking for your favourite treat
+                    or simply want to know more about Sweet Bakery,
+                    feel free to reach out.
+                </p>
+
+                <div class="contact-details">
+
+                    <div class="contact-detail">
+
+                        <h3>📍 Visit Us</h3>
+
+                        <p>Hubli, Karnataka</p>
+
+                    </div>
+
+
+                    <div class="contact-detail">
+
+                        <h3>📞 Call Us</h3>
+
+                        <p>+91 98765 43210</p>
+
+                    </div>
+
+
+                    <div class="contact-detail">
+
+                        <h3>✉️ Email Us</h3>
+
+                        <p>sweetbakery@example.com</p>
+
+                    </div>
 
                 </div>
 
             </div>
 
+
+            <!-- Contact Form -->
+            <div class="contact-form-container">
+
+                <h2>Send Us a Message</h2>
+
+                <form id="contactForm">
+
+                    <div class="form-group">
+
+                        <label for="name">
+                            Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            placeholder="Enter your name"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="email">
+                            Email
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="Enter your email"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="message">
+                            Message
+                        </label>
+
+                        <textarea
+                            id="message"
+                            name="message"
+                            rows="5"
+                            placeholder="Write your message..."
+                        ></textarea>
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="contact-btn"
+                    >
+                        Send Message
+                    </button>
+
+
+                    <!-- Small Space Between Buttons -->
+                    <div class="message-view-space"></div>
+
+
+                    <button
+                        type="button"
+                        id="viewMessagesBtn"
+                        class="contact-btn"
+                    >
+                        View Saved Messages
+                    </button>
+
+                </form>
+
+
+                <!-- Saved Messages -->
+                <div id="savedMessages"></div>
+
+            </div>
+
         </div>
 
-
-        <!-- Contact Form -->
-        <div class="contact-form-container">
-
-            <h2>Send Us a Message</h2>
-
-            <form id="contactForm">
-
-                <div class="form-group">
-
-                    <label for="name">
-                        Name
-                    </label>
-
-                    <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        placeholder="Enter your name"
-                    >
-
-                </div>
+    </section>
 
 
-                <div class="form-group">
+    <!-- Footer -->
+    <footer>
 
-                    <label for="email">
-                        Email
-                    </label>
+        <div class="footer-content">
 
-                    <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        placeholder="Enter your email"
-                    >
+            <h3>Sweet Bakery</h3>
 
-                </div>
+            <p>
+                Freshly baked happiness, made with love.
+            </p>
 
+            <div class="footer-line"></div>
 
-                <div class="form-group">
-
-                    <label for="message">
-                        Message
-                    </label>
-
-                    <textarea
-                        id="message"
-                        name="message"
-                        rows="5"
-                        placeholder="Write your message..."
-                    ></textarea>
-
-                </div>
-
-
-                <button
-                    type="submit"
-                    class="contact-btn"
-                >
-                    Send Message
-                </button>
-
-
-                <!-- Small Space Between Buttons -->
-                <div class="message-view-space"></div>
-
-
-                <button
-                    type="button"
-                    id="viewMessagesBtn"
-                    class="contact-btn"
-                >
-                    View Saved Messages
-                </button>
-
-            </form>
-
-
-            <!-- Saved Messages -->
-            <div id="savedMessages"></div>
+            <p class="copyright">
+                © 2026 Sweet Bakery. All rights reserved.
+            </p>
 
         </div>
 
-    </div>
-
-</section>
+    </footer>
 
 
-<!-- Footer -->
-<footer>
-
-    <div class="footer-content">
-
-        <h3>Sweet Bakery</h3>
-
-        <p>
-            Freshly baked happiness, made with love.
-        </p>
-
-        <div class="footer-line"></div>
-
-        <p class="copyright">
-            © 2026 Sweet Bakery. All rights reserved.
-        </p>
-
-    </div>
-
-</footer>
-
-
-<!-- JavaScript -->
-<script src="JS/script.js"></script>
-```
+    <!-- JavaScript -->
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 
 </body>
 
