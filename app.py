@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, redirect, url_for
 from config import Config
 import database
 
@@ -11,7 +11,7 @@ database.init_app(app)
 
 @app.route("/")
 def home():
-    return render_template("index.html")
+    return redirect(url_for("login"))
 
 
 @app.route("/menu")
