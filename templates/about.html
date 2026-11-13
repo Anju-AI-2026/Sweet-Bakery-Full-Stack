@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,7 +8,7 @@
 
     <title>About Us - Sweet Bakery</title>
 
-    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 
 <body>
@@ -23,23 +24,23 @@
             <ul class="nav-links">
 
                 <li>
-                    <a href="index.html">Home</a>
+                    <a href="{{ url_for('home') }}">Home</a>
                 </li>
 
                 <li>
-                    <a href="menu.html">Menu</a>
+                    <a href="{{ url_for('menu') }}">Menu</a>
                 </li>
 
                 <li>
-                    <a href="about.html" class="active">About</a>
+                    <a href="{{ url_for('about') }}" class="active">About</a>
                 </li>
 
                 <li>
-                    <a href="my-cart.html">My Cart</a>
+                    <a href="{{ url_for('cart') }}">My Cart</a>
                 </li>
 
                 <li>
-                    <a href="contact.html">Contact</a>
+                    <a href="{{ url_for('contact') }}">Contact</a>
                 </li>
 
             </ul>
