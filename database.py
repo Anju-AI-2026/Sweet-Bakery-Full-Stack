@@ -1,6 +1,6 @@
+
 import sqlite3
 from flask import current_app, g
-
 
 def get_db():
     if "db" not in g:
@@ -10,22 +10,28 @@ def get_db():
 
     return g.db
 
-
 def close_db(error=None):
     db = g.pop("db", None)
 
     if db is not None:
         db.close()
 
-
 def migrate_db():
     db = get_db()
 
-    columns = db.execute("PRAGMA table_info(products)").fetchall()
-    column_names = [column["name"] for column in columns]
+    # Add product_code to older databases if missing.
+    product_columns = db.execute(
+        "PRAGMA table_info(products)"
+    ).fetchall()
 
-    if "product_code" not in column_names:
-        db.execute("ALTER TABLE products ADD COLUMN product_code TEXT")
+    product_column_names = [
+        column["name"] for column in product_columns
+    ]
+
+    if "product_code" not in product_column_names:
+        db.execute(
+            "ALTER TABLE products ADD COLUMN product_code TEXT"
+        )
 
     db.execute("""
         CREATE UNIQUE INDEX IF NOT EXISTS
@@ -33,8 +39,22 @@ def migrate_db():
         ON products(product_code)
     """)
 
-    db.commit()
+    # Store the delivery charge with each order.
+    order_columns = db.execute(
+        "PRAGMA table_info(orders)"
+    ).fetchall()
 
+    order_column_names = [
+        column["name"] for column in order_columns
+    ]
+
+    if "delivery_charge" not in order_column_names:
+        db.execute("""
+            ALTER TABLE orders
+            ADD COLUMN delivery_charge REAL NOT NULL DEFAULT 0
+        """)
+
+    db.commit()
 
 def seed_products():
     db = get_db()
@@ -69,7 +89,6 @@ def seed_products():
 
     db.commit()
 
-
 def init_db():
     db = get_db()
 
@@ -78,7 +97,6 @@ def init_db():
 
     migrate_db()
     seed_products()
-
 
 def init_app(app):
     app.teardown_appcontext(close_db)
