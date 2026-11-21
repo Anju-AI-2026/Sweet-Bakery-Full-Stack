@@ -125,7 +125,8 @@ def contact():
 
     return render_template("contact.html")
 
-@app.route("/login")
+@app.route("/login", endpoint="login_page")
+@app.route("/login", endpoint="login")
 def login_page():
     if "user_id" in session:
         return redirect(url_for("home"))
@@ -199,7 +200,7 @@ def signup():
 # --------------------------------------------------
 
 @app.route("/api/login", methods=["POST"])
-def login():
+def api_login():
     data = request.get_json(silent=True) or {}
 
     email = data.get("email", "").strip().lower()
