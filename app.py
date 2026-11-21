@@ -1,3 +1,4 @@
+
 from flask import (
     Flask, render_template, request,
     redirect, url_for, session, jsonify
@@ -146,13 +147,174 @@ def login_user():
     })
 
 
-# Cart
+# Cart Page
 @app.route("/cart")
 def cart():
     if "user_id" not in session:
         return redirect(url_for("login"))
 
     return render_template("my-cart.html")
+
+
+# Get Cart API
+@app.route("/api/cart", methods=["GET"])
+def get_cart():
+    if "user_id" not in session:
+        return jsonify({
+            "success": False,
+            "message": "Please log in."
+        }), 401
+
+    db = database.get_db()
+
+    items = db.execute("""
+        SELECT
+            products.product_code,
+            products.name,
+            products.price,
+            products.image,
+            cart_items.quantity,
+            products.price * cart_items.quantity AS item_total
+        FROM cart_items
+        JOIN products ON cart_items.product_id = products.id
+        WHERE cart_items.user_id = ?
+        ORDER BY cart_items.id
+    """, (session["user_id"],)).fetchall()
+
+    cart_items = [dict(item) for item in items]
+    subtotal = sum(item["item_total"] for item in cart_items)
+
+    return jsonify({
+        "success": True,
+        "items": cart_items,
+        "subtotal": subtotal,
+        "delivery": 0,
+        "total": subtotal
+    })
+
+
+# Add to Cart API
+@app.route("/api/cart", methods=["POST"])
+def add_to_cart():
+    if "user_id" not in session:
+        return jsonify({
+            "success": False,
+            "message": "Please log in."
+        }), 401
+
+    data = request.get_json(silent=True) or {}
+    product_code = data.get("product_code", "")
+
+    if not isinstance(product_code, str) or not product_code.strip():
+        return jsonify({
+            "success": False,
+            "message": "Product code is required."
+        }), 400
+
+    product_code = product_code.strip()
+
+    db = database.get_db()
+
+    product = db.execute("""
+        SELECT id FROM products
+        WHERE product_code = ? AND is_available = 1
+    """, (product_code,)).fetchone()
+
+    if product is None:
+        return jsonify({
+            "success": False,
+            "message": "Product not found or unavailable."
+        }), 404
+
+    db.execute("""
+        INSERT INTO cart_items (user_id, product_id, quantity)
+        VALUES (?, ?, 1)
+        ON CONFLICT(user_id, product_id)
+        DO UPDATE SET quantity = quantity + 1
+    """, (session["user_id"], product["id"]))
+
+    db.commit()
+
+    return jsonify({
+        "success": True,
+        "message": "Product added to cart."
+    })
+
+
+# Update Cart Quantity API
+@app.route("/api/cart/<product_code>", methods=["PATCH"])
+def update_cart_quantity(product_code):
+    if "user_id" not in session:
+        return jsonify({
+            "success": False,
+            "message": "Please log in."
+        }), 401
+
+    data = request.get_json(silent=True) or {}
+    quantity = data.get("quantity")
+
+    if type(quantity) is not int or quantity < 1:
+        return jsonify({
+            "success": False,
+            "message": "Quantity must be a positive whole number."
+        }), 400
+
+    db = database.get_db()
+
+    result = db.execute("""
+        UPDATE cart_items
+        SET quantity = ?
+        WHERE user_id = ?
+        AND product_id = (
+            SELECT id FROM products WHERE product_code = ?
+        )
+    """, (quantity, session["user_id"], product_code))
+
+    if result.rowcount == 0:
+        return jsonify({
+            "success": False,
+            "message": "Product not found in your cart."
+        }), 404
+
+    db.commit()
+
+    return jsonify({
+        "success": True,
+        "message": "Cart quantity updated."
+    })
+
+
+# Remove Cart Item API
+@app.route("/api/cart/<product_code>", methods=["DELETE"])
+def remove_from_cart(product_code):
+    if "user_id" not in session:
+        return jsonify({
+            "success": False,
+            "message": "Please log in."
+        }), 401
+
+    db = database.get_db()
+
+    result = db.execute("""
+        DELETE FROM cart_items
+        WHERE user_id = ?
+        AND product_id = (
+            SELECT id FROM products WHERE product_code = ?
+        )
+    """, (session["user_id"], product_code))
+
+    if result.rowcount == 0:
+        return jsonify({
+            "success": False,
+            "message": "Product not found in your cart."
+        }), 404
+
+    db.commit()
+
+    return jsonify({
+        "success": True,
+        "message": "Product removed from cart."
+    })
 
 
 # Logout
