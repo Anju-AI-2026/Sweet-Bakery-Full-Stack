@@ -1,15 +1,8 @@
+# 🧁 Sweet Bakery — Full Stack Web Application
 
-# 🧁 Sweet Bakery
+A bakery-themed full-stack web application developed using **Python, Flask, SQLite, HTML, CSS, and JavaScript**.
 
-A sweet and welcoming bakery website built using HTML, CSS and JavaScript. Explore delicious cakes, pastries and cookies, browse the menu, and manage your shopping cart.
-
-## ✨ Features# 🧁 Sweet Bakery — Full Stack Web Application
-
-A bakery-themed full-stack web application built using **Python, Flask, SQLite, HTML, CSS, and JavaScript**.
-
-Sweet Bakery allows users to create accounts, explore bakery products, manage their shopping carts, place orders, view order history, and send contact messages.
-
----
+Sweet Bakery allows users to create accounts, explore bakery products, manage shopping carts, place orders, view order history, and send contact messages.
 
 ## ✨ Features
 
@@ -22,14 +15,14 @@ Sweet Bakery allows users to create accounts, explore bakery products, manage th
 ### 🍰 Product Menu
 - 16 bakery products across four categories.
 - Product information and prices stored in SQLite.
-- Add products to the shopping cart.
+- Browse products and add them to the shopping cart.
 
 ### 🛒 Shopping Cart
 - Add products to the cart.
-- Increase product quantities.
+- Increase or decrease product quantities.
 - Remove products.
-- Automatically calculate subtotal and total.
-- Cart data is stored separately for each user.
+- Automatic subtotal and total calculation.
+- Separate cart data for each user.
 
 ### 📦 Order Management
 - Place orders using cart contents.
@@ -48,44 +41,21 @@ Sweet Bakery allows users to create accounts, explore bakery products, manage th
 
 | Technology | Purpose |
 |---|---|
-| HTML | Page structure |
-| CSS | Website styling |
+| HTML5 | Page structure |
+| CSS3 | Website styling |
 | JavaScript | Frontend interactions |
 | Python | Backend programming |
-| Flask | Web framework and APIs |
-| SQLite | Database |
+| Flask | Web framework |
+| SQLite | Database management |
 | Werkzeug | Password hashing |
 
 ---
 
 ## 📸 Screenshots
 
-### Homepage
-![Homepage](output_images/homepage.png)
+The project includes screenshots of the homepage, product menu, authentication pages, shopping cart, order process, and contact pages.
 
-### Menu
-![Menu](output_images/menu_page_01.png)
-
-![Menu](output_images/menu_page_02.png)
-
-![Menu](output_images/menu_page_03.png)
-
-### Shopping Cart
-![Shopping Cart](output_images/my_cart_page.png)
-
-### Login
-![Login](output_images/login_page.png)
-
-### Create Account
-![Create Account](output_images/create_account_page.png)
-
-### About
-![About](output_images/about_page_01.png)
-
-![About](output_images/about_page_02.png)
-
-### Contact
-![Contact](output_images/contact_us.png)
+**View the complete screenshot gallery:** [Output Screenshots](output_images/README.md)
 
 ---
 
@@ -106,6 +76,7 @@ Sweet-Bakery-Full-Stack/
 │   └── sweet_bakery.db
 │
 ├── output_images/
+│   └── README.md
 │
 ├── static/
 │   ├── css/
@@ -132,6 +103,8 @@ Sweet-Bakery-Full-Stack/
     └── reset-login.html
 ```
 
+*The SQLite database is created locally when the application initializes.*
+
 ---
 
 ## 🚀 Installation and Setup
@@ -157,6 +130,7 @@ python -m venv .venv
 ### 4. Activate the virtual environment
 
 ```powershell
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy RemoteSigned
 .\.venv\Scripts\Activate.ps1
 ```
 
@@ -172,13 +146,11 @@ pip install -r requirements.txt
 python app.py
 ```
 
-Open the application in your browser:
+Open your browser and visit:
 
 ```text
 http://127.0.0.1:5000
 ```
-
-The SQLite database and initial product records are initialized automatically when the application starts.
 
 ---
 
@@ -186,12 +158,12 @@ The SQLite database and initial product records are initialized automatically wh
 
 The application uses SQLite with the following main tables:
 
-- `users` — registered user accounts.
-- `products` — bakery product information.
-- `cart_items` — user-specific shopping cart items.
-- `orders` — placed orders.
-- `order_items` — individual products belonging to orders.
-- `contact_messages` — user contact messages.
+- `users` — Registered user accounts.
+- `products` — Bakery product information.
+- `cart_items` — User-specific shopping cart items.
+- `orders` — Placed orders.
+- `order_items` — Individual products belonging to orders.
+- `contact_messages` — User contact messages.
 
 ---
 
@@ -201,10 +173,10 @@ This project demonstrates practical implementation of:
 
 - Flask application development.
 - Frontend and backend integration.
-- REST-style API endpoints.
-- HTTP requests using JavaScript Fetch API.
+- REST-style API development.
+- JavaScript Fetch API.
 - SQLite database operations.
-- SQL table relationships and foreign keys.
+- SQL relationships and foreign keys.
 - User authentication and session management.
 - Password hashing.
 - CRUD operations.
@@ -224,57 +196,3 @@ GitHub: [Anju-AI-2026](https://github.com/Anju-AI-2026)
 ---
 
 Copyright © 2026 Anjali Ramesh Sangannavar. All rights reserved.
-
-- Beautiful bakery homepage
-- Product menu with multiple categories
-- About and Contact pages
-- Login and Sign Up functionality
-- Shopping cart
-- Responsive webpage design
-
-## 🛠️ Technologies Used
-
-- HTML5
-- CSS3
-- JavaScript
-- Local Storage
-- Session Storage
-
-## 📸 Output Screenshots
-
-### 🏠 Homepage
-
-![Sweet Bakery Homepage](output_images/homepage.png)
-
-### 🍰 Menu
-
-![Menu Page 1](output_images/menu_page_01.png)
-
-![Menu Page 2](output_images/menu_page_02.png)
-
-![Menu Page 3](output_images/menu_page_03.png)
-
-### 💗 About Us
-
-![About Page 1](output_images/about_page_01.png)
-
-![About Page 2](output_images/about_page_02.png)
-
-### 📩 Contact Us
-
-![Contact Page](output_images/contact_us.png)
-
-### 🛒 My Cart
-
-![Shopping Cart](output_images/my_cart_page.png)
-
-## 🚀 How to Run
-
-1. Clone or download this repository.
-2. Open the `04-sweet-bakery` folder.
-3. Open `index.html` using VS Code Live Server.
-4. Create an account or log in to explore the website.
-
-## 👩‍💻 Developer
-
-**Anjali Ramesh Sangannavar**
