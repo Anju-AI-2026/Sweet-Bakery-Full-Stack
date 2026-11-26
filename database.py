@@ -2,6 +2,7 @@
 import sqlite3
 from flask import current_app, g
 
+
 def get_db():
     if "db" not in g:
         g.db = sqlite3.connect(current_app.config["DATABASE"])
@@ -10,11 +11,13 @@ def get_db():
 
     return g.db
 
+
 def close_db(error=None):
     db = g.pop("db", None)
 
     if db is not None:
         db.close()
+
 
 def migrate_db():
     db = get_db()
@@ -54,7 +57,25 @@ def migrate_db():
             ADD COLUMN delivery_charge REAL NOT NULL DEFAULT 0
         """)
 
+    # Add user_id to older contact_messages tables.
+    # Existing messages remain unassigned (NULL).
+    contact_columns = db.execute(
+        "PRAGMA table_info(contact_messages)"
+    ).fetchall()
+
+    contact_column_names = [
+        column["name"] for column in contact_columns
+    ]
+
+    if "user_id" not in contact_column_names:
+        db.execute("""
+            ALTER TABLE contact_messages
+            ADD COLUMN user_id INTEGER
+            REFERENCES users(id)
+        """)
+
     db.commit()
+
 
 def seed_products():
     db = get_db()
@@ -89,6 +110,7 @@ def seed_products():
 
     db.commit()
 
+
 def init_db():
     db = get_db()
 
@@ -97,6 +119,7 @@ def init_db():
 
     migrate_db()
     seed_products()
+
 
 def init_app(app):
     app.teardown_appcontext(close_db)
